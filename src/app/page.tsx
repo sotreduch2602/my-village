@@ -1,65 +1,91 @@
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
+
+const headerLinks = [
+  {
+    title: "Short Stay",
+    href: "/#",
+  },
+  {
+    title: "Business",
+    href: "/#",
+  },
+  {
+    title: "Loyalty Program",
+    href: "/#",
+  },
+  {
+    title: "Our Brands",
+    href: "/#",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <main>
+      <div className="h-16 top-0 relative z-300 transition-all duration-300 bg-white shadow-searchBar  ">
+        <div className="flex justify-center">
+          <div className="w-full flex justify-between items-center h-16 top-0 sticky">
+            <Link
+              className="w-11 h-11 md:w-15 md:h-15 flex items-center mx-[15px]"
+              href={"/"}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              <Image
+                className="w-[60px] h-auto object-cover"
+                src="https://cdn-v2.mvillage.vn/homepage/images/logo-mvillage-b.png"
+                alt="logo"
+                loading="lazy"
+                width={"60"}
+                height={"60"}
+              />
+            </Link>
+            <div className="flex gap-[25px] mr-[15px] text-secondary">
+              <div className="gap-[25px] flex">
+                {headerLinks.map((link) => {
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="gap-2.5 relative text-base font-medium leading-6 flex items-center cursor-pointer"
+                    >
+                      <span className="capitalize">{link.title}</span>
+                    </Link>
+                  );
+                })}
+              </div>
+              <div className="flex items-center animation-main-menu-item">
+                <div className="container">
+                  <div className="text-black4 rounded border-1px text-lg md:text-base transition  max-w-full h-auto border-stroke hover:bg-gray16">
+                    <div className="flex items-center gap-1.5 ">
+                      <Image
+                        className="rounded"
+                        src={
+                          "https://cdn-v2.mvillage.vn/homepage/images/flag/en-flag.svg"
+                        }
+                        alt="en"
+                        loading="lazy"
+                        width={24}
+                        height={24}
+                      />
+                      <span className="text-base font-medium">ENG</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center cursor-pointer relative">
+                <Button
+                  variant={"primary"}
+                  className="flex items-center py-1 px-2"
+                />
+                <button className="flex items-center py-1 px-2 ">
+                  Log in/Sign up
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
