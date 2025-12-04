@@ -9,7 +9,7 @@ export default function MainLayout({
 }) {
   return (
     <div className="main-layout min-h-screen bg-linear-to-br from-slate-50 to-slate-100">
-      <HomeHeader />
+      <HomeHeader className="shadow"/>
       <main className="main">{children}</main>
     </div>
   );

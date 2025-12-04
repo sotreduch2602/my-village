@@ -7,10 +7,11 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { cn } from "@/lib/utils";
 import { Bell, Home, Menu, Settings, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const menuItems = [
   { icon: Home, label: "Short Stay", href: "/#" },
@@ -19,11 +20,15 @@ const menuItems = [
   { icon: Settings, label: "Our Brands", href: "/our-brands" },
 ];
 
-const HomeHeader = () => {
+interface HomeHeaderProps extends React.HTMLAttributes<HTMLElement> {
+  className?: string;
+}
+
+const HomeHeader = ({ className }: HomeHeaderProps) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header>
+    <header className={cn("", className)}>
       <Sheet open={open} onOpenChange={setOpen}>
         <div className="h-16 top-0 relative z-300 transition-all duration-300 bg-white shadow-searchBar">
           <div className="flex justify-center">
