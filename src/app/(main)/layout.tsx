@@ -8,9 +8,11 @@ export default function MainLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="main-layout min-h-screen bg-linear-to-br from-slate-50 to-slate-100">
-      <HomeHeader className="shadow-sm"/>
-      <main className="main">{children}</main>
-    </div>
+    <main className="flex flex-col min-h-screen relative">
+      <div className="main-layout bg-linear-to-br from-slate-50 to-slate-100">
+        <HomeHeader className="shadow-sm" />
+      </div>
+      <div className="pt-16">{children}</div>
+    </main>
   );
 }

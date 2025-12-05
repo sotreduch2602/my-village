@@ -7,7 +7,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { cn } from "@/lib/utils";
+import { cn } from "../../../shared/lib/utils";
 import { Bell, Home, Menu, Settings, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,68 +30,70 @@ const HomeHeader = ({ className }: HomeHeaderProps) => {
   return (
     <header className={cn("", className)}>
       <Sheet open={open} onOpenChange={setOpen}>
-        <div className="h-16 top-0 relative z-300 transition-all duration-300 bg-white shadow-searchBar">
+        <div className="h-16 top-0 left-0 right-0 fixed z-50 transition-all duration-300 bg-white shadow">
           <div className="flex justify-center">
-            <div className="w-full flex justify-between items-center h-16 top-0 sticky">
-              <Link
-                className="w-11 h-11 md:w-15 md:h-15 flex items-center mx-[15px]"
-                href={"/"}
-              >
-                <Image
-                  className="w-[60px] h-auto object-cover"
-                  src="https://cdn-v2.mvillage.vn/homepage/images/logo-mvillage-b.png"
-                  alt="logo"
-                  loading="lazy"
-                  width={"60"}
-                  height={"60"}
-                />
-              </Link>
-              <div className="flex gap-[25px] mr-[15px] text-secondary">
-                <div className="gap-[25px] flex">
-                  {menuItems.map((item) => {
-                    return (
-                      <Link
-                        key={item.label}
-                        href={item.href}
-                        className="gap-2.5 relative text-base font-medium leading-6 flex items-center cursor-pointer"
-                      >
-                        <span className="capitalize">{item.label}</span>
-                      </Link>
-                    );
-                  })}
-                </div>
-                <div className="flex items-center animation-main-menu-item">
-                  <div className="container">
-                    <div className="text-black4 rounded border-1px text-lg md:text-base transition  max-w-full h-auto border-stroke hover:bg-gray16">
-                      <div className="flex items-center cursor-pointer gap-1.5 ">
-                        <Image
-                          className="rounded"
-                          src={
-                            "https://cdn-v2.mvillage.vn/homepage/images/flag/en-flag.svg"
-                          }
-                          alt="en"
-                          loading="lazy"
-                          width={24}
-                          height={24}
-                        />
-                        <span className="text-base font-medium">ENG</span>
+            <div className="container">
+              <div className="w-full flex justify-between items-center h-16">
+                <Link
+                  className="w-11 h-11 md:w-15 md:h-15 flex items-center mx-[15px]"
+                  href={"/"}
+                >
+                  <Image
+                    className="w-[60px] h-auto object-cover"
+                    src="https://cdn-v2.mvillage.vn/homepage/images/logo-mvillage-b.png"
+                    alt="logo"
+                    loading="lazy"
+                    width={"60"}
+                    height={"60"}
+                  />
+                </Link>
+                <div className="flex gap-[25px] mr-[15px] text-secondary">
+                  <div className="gap-[25px] flex">
+                    {menuItems.map((item) => {
+                      return (
+                        <Link
+                          key={item.label}
+                          href={item.href}
+                          className="gap-2.5 relative text-base font-medium leading-6 flex items-center cursor-pointer"
+                        >
+                          <span className="capitalize">{item.label}</span>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                  <div className="flex items-center animation-main-menu-item">
+                    <div className="container">
+                      <div className="text-black4 rounded border-1px text-lg md:text-base transition  max-w-full h-auto border-stroke hover:bg-gray16">
+                        <div className="flex items-center cursor-pointer gap-1.5 ">
+                          <Image
+                            className="rounded"
+                            src={
+                              "https://cdn-v2.mvillage.vn/homepage/images/flag/en-flag.svg"
+                            }
+                            alt="en"
+                            loading="lazy"
+                            width={24}
+                            height={24}
+                          />
+                          <span className="text-base font-medium">ENG</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="flex items-center cursor-pointer relative">
-                  <Button
-                    variant={"primary"}
-                    className="flex items-center py-1 px-2"
-                    onClick={() => alert("Click")}
-                  >
-                    Log in/Sign up
-                  </Button>
-                  <SheetTrigger asChild>
-                    <Button variant={"ghost"} className="flex p-2 ms-2">
-                      <Menu width={32} height={32} />
+                  <div className="flex items-center cursor-pointer relative">
+                    <Button
+                      variant={"primary"}
+                      className="flex items-center py-1 px-2"
+                      onClick={() => alert("Click")}
+                    >
+                      Log in/Sign up
                     </Button>
-                  </SheetTrigger>
+                    <SheetTrigger asChild>
+                      <Button variant={"ghost"} className="flex p-2 ms-2">
+                        <Menu width={32} height={32} />
+                      </Button>
+                    </SheetTrigger>
+                  </div>
                 </div>
               </div>
             </div>
