@@ -9,6 +9,7 @@ export default function App() {
         id="homepage-search"
         className="absolute inset-0 flex flex-col justify-end md:justify-center items-center gap-[30px] z-[1px] px-4 pb-[150px] md:pb-0"
       >
+        <div className="booking"></div>
         <div className="banner-button">
           <Button>EXPLORE</Button>
         </div>
